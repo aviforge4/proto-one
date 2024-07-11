@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star turn</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <!-- Additional CSS for enhanced UI -->
+    <link href="assets/css/enhanced-styles.css" rel="stylesheet">
+    <link href="assets/css/video-styles.css" rel="stylesheet">
+    <link href="assets/css/menu.css" rel="stylesheet">
+    <link href="assets/css/post.css" rel="stylesheet">
+    <link href="assets/css/upload.css" rel="stylesheet">
+    <link href="assets/css/profile.css" rel="stylesheet">
+    <link href="assets/css/hoem.css" rel="stylesheet">
+    <link href="assets/css/top.css" rel="stylesheet">
+    <link href="assets/css/navi.css" rel="stylesheet">
+    <link href="assets/css/post_tab/three.css" rel="stylesheet">
+    
+   
+</head>
+<body>
+    <!-- Main Content Area -->
+    <div class="main-container" id="mainContent">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Menu Icon -->
+                <button class="btn btn-outline-secondary mr-3" id="menuButton" aria-label="Menu">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+
+                <!-- Search Bar -->
+                <form class="form-inline my-2 my-lg-0 mx-auto d-flex flex-grow-1">
+                    <i class=""></i>
+                    <input class="form-control mr-sm-2 flex-grow-1" type="search" placeholder="Search" aria-label="Search">
+                </form>
+
+                <!-- Profile Photo -->
+                 <!-- Profile Photo -->
+                <div class="d-flex align-items-center profile-menu-buttons">
+                    <img id="profilePhoto" src="assets/img/profile.jpg" alt="Profile Photo" class="rounded-circle profile-photo" data-toggle="modal" data-target="#profileModal">
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs justify-content-center w-100" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                    <i class="fas fa-home fa-lg"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="photos-tab" data-toggle="tab" href="#photos" role="tab" aria-controls="photos" aria-selected="false">
+                    <i class="fas fa-camera fa-lg"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="following-tab" data-toggle="tab" href="#following" role="tab" aria-controls="following" aria-selected="false">
+                    <i class="fas fa-user-friends fa-lg"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="post-tab" data-toggle="tab" href="#post" role="tab" aria-controls="post" aria-selected="false">
+                    <i class="fas fa-pencil-alt fa-lg"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="upload-tab" data-toggle="tab" href="#upload" role="tab" aria-controls="upload" aria-selected="false">
+                    <i class="fas fa-cloud-upload-alt fa-lg"></i>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content w-100" id="myTabContent">
+            <!-- Home Tab -->
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <h6>Home</h6>
+                <div class="content-grid" id="homeContent">
+                    <!-- Video Player -->
+                    <div class="content-item">
+                        <video controls>
+                            <source src="assets/videos-/vid_4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="content-item">
+                        <video controls>
+                            <source src="assets/videos-/vid_3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p>videos on our database (Amazon S3) will dynamically loaded with real time updates</p>
+                </div>
+            </div>
+
+            <!-- Photos Tab -->
+            <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="photos-tab">
+                <h6>Photos</h6>
+                <div class="content-grid" id="photosContent">
+                    <p>Placeholder content for photos feed.</p>
+                </div>
+            </div>
+
+            <!-- Following Tab -->
+            <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
+                <h6>Following</h6>
+                <div class="content-grid" id="followingContent">
+                    <p>Placeholder content for following feed.</p>
+                </div>
+            </div>
+
+
+            <!-- Post Tab -->
+            <!-- Post Tab -->
+            <div class="tab-pane fade" id="post" role="tabpanel" aria-labelledby="post-tab">
+                <h6>Post</h6>
+                <!-- Settings Icon (placed at the top right corner) -->
+                <button id="settingsBtn" class="btn btn-outline-secondary btn-sm float-right">
+                    <i class="fas fa-cog"></i>
+                </button>
+
+                <!-- (+) Post Button Icon -->
+                <button id="togglePostFormBtn" class="btn btn-primary btn-sm float-right mr-2">
+                    <i class="fas fa-plus"></i>
+                </button>
+
+                <!-- User Posts Button -->
+                <button id="userPostsBtn" class="btn btn-outline-primary btn-sm mr-2">
+                    User Posts
+                </button>
+
+                <!-- Post Form (initially hidden) -->
+                <div id="postFormContainer" class="container mt-4 d-none">
+                    <form id="postForm">
+                        <div class="form-group">
+                            <label for="postImages"></label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="postImages" accept="image/*" multiple>
+                                    <label class="custom-file-label" for="postImages">Choose Photos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Swiper Container for Selected Images -->
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper" id="selectedImages"></div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postMusic"></label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="postMusic" accept="audio/*">
+                                    <label class="custom-file-label" for="postMusic">Choose Music</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <audio id="musicPlayer" controls style="width: 100%; display: none;"></audio>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postTitle">Title</label>
+                            <input type="text" class="form-control" id="postTitle" placeholder="Enter title">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postContent">Description</label>
+                            <textarea class="form-control" id="postContent" rows="5" placeholder="Write your post here..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postTags">Tags</label>
+                            <input type="text" class="form-control" id="postTags" placeholder="Add tags (comma separated)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postLocation">Location</label>
+                            <input type="text" class="form-control" id="postLocation" placeholder="Add location">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postSchedule">Schedule</label>
+                            <input type="datetime-local" class="form-control" id="postSchedule">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Post</button>
+                    </form>
+                </div>
+                <div id="settingsFormContainer" class="container mt-4 d-none">
+                    <h6>Settings</h6>
+                    <ul>
+                        <li>Media Control</li>
+                        <li>Ad Control</li>
+                        <li>Privacy</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Upload Tab -->
+            <div class="tab-pane fade" id="upload" role="tabpanel" aria-labelledby="upload-tab">
+                <h6 class="mb-4">Upload Content</h6>
+                <div class="container">
+                    <form id="uploadForm">
+                        <!-- Video Preview Section -->
+                        <div class="upload-preview">
+                            <label for="videoFile" class="upload-label">
+                                <i class="fas fa-video"></i> Choose Video
+                            </label>
+                            <input type="file" class="upload-input" id="videoFile" accept="video/*" onchange="previewVideo(this)">
+                            <video id="videoPreview" class="video-preview" controls></video>
+                        </div>
+
+                        <!-- Video Details Section -->
+                        <div class="form-group mt-4">
+                            <label for="videoTitle">Title</label>
+                            <input type="text" class="form-control" id="videoTitle" placeholder="Enter video title">
+                        </div>
+                        <div class="form-group">
+                            <label for="videoDescription">Description</label>
+                            <textarea class="form-control" id="videoDescription" rows="3" placeholder="Enter video description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="videoTags">Tags</label>
+                            <input type="text" class="form-control" id="videoTags" placeholder="Add tags (comma separated)">
+                        </div>
+                        <div class="form-group">
+                            <label for="videoLocation">Location</label>
+                            <input type="text" class="form-control" id="videoLocation" placeholder="Add location">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Upload</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-icon" id="closeSidebar"><i class="fas fa-times"></i></span>
+        <div class="list-group">
+            <a href="#" class="list-group-item" data-option="notification">
+                <i class="fas fa-bell"></i> Notification
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </a>
+            <a href="#" class="list-group-item" data-option="dark-mode">
+                <i class="fas fa-moon"></i> Dark Mode
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </a>
+            <a href="#" class="list-group-item" data-option="history">
+                <i class="fas fa-history"></i> History
+            </a>
+            <div class="sub-options" id="historySubOptions">
+                <a href="#" class="list-group-item" data-option="watch-history">
+                    <i class="fas fa-play-circle"></i> Watch History
+                </a>
+                <a href="#" class="list-group-item" data-option="search-history">
+                    <i class="fas fa-search"></i> Search History
+                </a>
+            </div>
+            <a href="#" class="list-group-item" data-option="activity">
+                <i class="fas fa-chart-line"></i> Activity
+            </a>
+            <a href="#" class="list-group-item" data-option="help">
+                <i class="fas fa-question-circle"></i> Help
+            </a>
+            <a href="#" class="list-group-item" data-option="terms">
+                <i class="fas fa-file-alt"></i> Terms of Services
+            </a>
+        </div>
+    </div>
+
+
+
+    <!-- Profile Section -->
+        <!-- Profile Section -->
+    <div class="profile-section d-none" id="profileSection">
+        <div class="profile-container">
+            <!-- Back Arrow Icon -->
+            <span class="back-icon" onclick="closeProfileSection()"><i class="fas fa-arrow-left"></i></span>
+
+            <div class="profile-picture-container">
+                <img id="profilePicture" src="assets/img/profile.jpg" alt="Profile Picture" class="rounded-circle profile-photo-modal">
+                <input type="file" id="profilePictureInput" accept="image/*" style="display: none;" onchange="previewProfilePicture(this)">
+                <label for="profilePictureInput" class="edit-link">Change Picture</label>
+            </div>
+            <h4 id="usernameModal">Username</h4>
+            <p id="followers-countModal">Followers: 500</p>
+            <p id="emailModal">user@example.com</p>
+
+            <!-- Personal Information -->
+            <div class="personal-info">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe">
+                <span class="edit-link" onclick="editName()"></span>
+            </div>
+            <div class="personal-info">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="user@example.com">
+                <span class="edit-link" onclick="editEmail()"></span>
+            </div>
+
+            <!-- Replace buttons with text -->
+            <div class="profile-actions">
+                <br> <!-- Add line break for separation -->
+                <span class="action-link" onclick="updateProfile()">Update Profile</span>
+                <br> <!-- Add line break for separation -->
+                <span class="action-link">Log Out</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+        <button class="delete-button" onclick="deleteImage()">Delete Image</button>
+    </div>
+
+    
+    <!-- Bootstrap JavaScript and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- JavaScript -->
+    <script src="assets/js/post.js"></script>
+    <script src="assets/js/html_vid.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/upload.js"></script>
+    <script src="assets/js/profile.js"></script>
+
+    <!-- JavaScript to toggle forms visibility -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the toggle button
+            var toggleBtn = document.getElementById('togglePostFormBtn');
+            // Get the post form container
+            var postFormContainer = document.getElementById('postFormContainer');
+            // Get the settings button
+            var settingsBtn = document.getElementById('settingsBtn');
+            // Get the settings form container
+            var settingsFormContainer = document.getElementById('settingsFormContainer');
+
+            // Add click event listener to toggle button
+            toggleBtn.addEventListener('click', function() {
+                // Hide settings form if visible
+                if (!settingsFormContainer.classList.contains('d-none')) {
+                    settingsFormContainer.classList.add('d-none');
+                }
+                // Toggle the visibility of the post form container
+                postFormContainer.classList.toggle('d-none');
+            });
+
+            // Add click event listener to settings button
+            settingsBtn.addEventListener('click', function() {
+                // Hide post form if visible
+                if (!postFormContainer.classList.contains('d-none')) {
+                    postFormContainer.classList.add('d-none');
+                }
+                // Toggle the visibility of the settings form container
+                settingsFormContainer.classList.toggle('d-none');
+            });
+        });
+    </script>
+
+</body>
+</html>

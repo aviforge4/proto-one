@@ -1,0 +1,71 @@
+/* General styling */
+body {
+    font-family: 'Proxima Nova', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    padding: 10px 20px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#menuButton {
+    color: #000000; /* Changed to black */
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+#menuButton i {
+    font-size: 24px;
+    margin-top: 2px; /* Adjusted margin to move it slightly down */
+    color: #000000; /* Changed to black */
+}
+
+#menuButton:focus {
+    outline: none; /* Remove blue focus outline */
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    color: #007BFF;
+}
+
+.form-inline {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+}
+
+.form-control {
+    padding-left: 35px;
+    border: 1px solid #e6e6e6;
+    border-radius: 50px;
+    background-color: #f9f9f9;
+}
+
+.profile-photo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.profile-menu-buttons {
+    margin-left: auto;
+}
+
+/* Responsive styling */
+@media (max-width: 767.98px) {
+    .form-inline {
+        max-width: 100%;
+    }
+
+    #menuButton {
+        padding-right: 10px;
+    }
+}
